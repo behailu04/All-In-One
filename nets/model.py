@@ -75,6 +75,13 @@ class AllInOneModel(object):
         gender_probablity2 = Dense(128,activation="relu")(gender_drop1)
         gender_drop2 = Dropout(0.2)(gender_probablity2)
         gender_probablity3 = Dense(2,activation="softmax",name="gender_probablity")(gender_drop2)
+        
+        # Age Classification
+        Age_Classification1 = Dense(1024, activation="relu")(conv6_out_pool_flatten)
+        Age_Classification_drop1 = Dropout(0.2)(Age_Classification1)
+        Age_Classification2 = Dense(128, activation="relu")(Age_Classification_drop1)
+        Age_Classification_drop2 = Dropout(0.2)(Age_Classification2)
+        Age_Classification3 = Dense(8, activation="softmax", name="Age_Classification")(Age_Classification_drop2)
 
        
 
